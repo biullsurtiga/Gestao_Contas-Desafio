@@ -28,7 +28,7 @@ public class Transacoes implements Serializable{
 	private static final long serialVersionUID = -207430903002385159L;
 
 	private Long idTransacao;
-	private Conta id_Contas;
+	private Contas contas;
 	private Float valor;
 	private Date dataTransacao;
 	
@@ -50,12 +50,12 @@ public class Transacoes implements Serializable{
 	}
 
 	@ManyToOne(fetch = FetchType.EAGER)
-	public Conta getId_Contas() {
-		return id_Contas;
+	public Contas getContas() {
+		return contas;
 	}
 
-	public void setId_Contas(Conta id_Contas) {
-		this.id_Contas = id_Contas;
+	public void setContas(Contas contas) {
+		this.contas = contas;
 	}
 
 	@Column(name = "valor", nullable = true)
@@ -114,7 +114,7 @@ public class Transacoes implements Serializable{
 
 	@Override
 	public String toString() {
-		return "Lancamento [idTransacao=" + idTransacao + ", id_Contas=" + id_Contas + ", valor=" + valor + ", dataTransacao=" + dataTransacao
+		return "Lancamento [idTransacao=" + idTransacao + ", id_Contas=" + contas + ", valor=" + valor + ", dataTransacao=" + dataTransacao
 				+ ", dataCriacao=" + dataCriacao + ", dataAtualizacao=" + dataAtualizacao +"]";
 	}
 	

@@ -18,7 +18,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "pessoas")
-public class Pessoa implements Serializable{
+public class Pessoas implements Serializable{
 
 	/**
 	 * 
@@ -32,9 +32,9 @@ public class Pessoa implements Serializable{
 	
 	private Date dataCriacao;
 	private Date dataAtualizacao;
-	private List<Conta> contas;
+	private List<Contas> contas;
 	
-	public Pessoa() {
+	public Pessoas() {
 		
 	}
 
@@ -76,11 +76,11 @@ public class Pessoa implements Serializable{
 	}
 
 	@OneToMany(mappedBy = "pessoas", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	public List<Conta> getContas() {
+	public List<Contas> getContas() {
 		return contas;
 	}
 
-	public void setContas(List<Conta> contas) {
+	public void setContas(List<Contas> contas) {
 		this.contas = contas;
 	}
 	

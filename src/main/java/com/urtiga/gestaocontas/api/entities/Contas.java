@@ -26,7 +26,7 @@ import com.urtiga.gestaocontas.api.enums.TipoConta;
 
 @Entity
 @Table(name = "contas")
-public class Conta implements Serializable{
+public class Contas implements Serializable{
 
 	/**
 	 * 
@@ -38,13 +38,13 @@ public class Conta implements Serializable{
 	private Float limiteSaqueDiario;
 	private TipoConta tipoConta;
 	private FlagAtivo flagAtivo;
-	private Pessoa id_Pessoa;
+	private Pessoas pessoas;
 	
 	private Date dataCriacao;
 	private Date dataAtualizacao;
 	private List<Transacoes> transacoes;
 	
-	public Conta() {
+	public Contas() {
 		
 	}
 
@@ -107,12 +107,12 @@ public class Conta implements Serializable{
 	}
 
 	@ManyToOne(fetch = FetchType.EAGER)
-	public Pessoa getPessoa() {
-		return id_Pessoa;
+	public Pessoas getPessoas() {
+		return pessoas;
 	}
 
-	public void setPessoa(Pessoa pessoa) {
-		this.id_Pessoa = pessoa;
+	public void setPessoas(Pessoas pessoas) {
+		this.pessoas = pessoas;
 	}
 
 	@Column(name = "dataCriacao", nullable = false)
@@ -159,7 +159,7 @@ public class Conta implements Serializable{
 	public String toString() {
 		return "Pessoa [idConta=" + idConta + ", saldo=" + saldo + ", limiteSaqueDiario=" + limiteSaqueDiario + ", tipoConta=" + tipoConta
 				+ ", flagAtivo=" + flagAtivo + "dataCriacao=" + dataCriacao + "dataAtualizacao=" + dataAtualizacao
-				+ ", id_Pessoa=" + id_Pessoa +"]";
+				+ ", id_Pessoa=" + pessoas +"]";
 	}
 	
 }
