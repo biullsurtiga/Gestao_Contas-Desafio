@@ -27,7 +27,7 @@ public class Transacoes implements Serializable{
 	 */
 	private static final long serialVersionUID = -207430903002385159L;
 
-	private Long idTransacao;
+	private Long id;
 	private Contas contas;
 	private Float valor;
 	private Date dataTransacao;
@@ -41,12 +41,12 @@ public class Transacoes implements Serializable{
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	public Long getIdTransacao() {
-		return idTransacao;
+	public Long getId() {
+		return id;
 	}
 
-	public void setIdTransacao(Long idTransacao) {
-		this.idTransacao = idTransacao;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	@ManyToOne(fetch = FetchType.EAGER)
@@ -114,7 +114,7 @@ public class Transacoes implements Serializable{
 
 	@Override
 	public String toString() {
-		return "Lancamento [idTransacao=" + idTransacao + ", id_Contas=" + contas + ", valor=" + valor + ", dataTransacao=" + dataTransacao
+		return "Lancamento [id=" + id + ", id_Contas=" + contas + ", valor=" + valor + ", dataTransacao=" + dataTransacao
 				+ ", dataCriacao=" + dataCriacao + ", dataAtualizacao=" + dataAtualizacao +"]";
 	}
 	

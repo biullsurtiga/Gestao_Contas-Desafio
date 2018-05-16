@@ -25,7 +25,7 @@ public class Pessoas implements Serializable{
 	 */
 	private static final long serialVersionUID = -8945214961258154323L;
 
-	private Long idPessoa;
+	private Long id;
 	private String nome;
 	private String cpf;
 	private Date dataNascimento;
@@ -40,12 +40,12 @@ public class Pessoas implements Serializable{
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	public Long getIdPessoa() {
-		return idPessoa;
+	public Long getId() {
+		return id;
 	}
 
-	public void setIdPessoa(Long idPessoa) {
-		this.idPessoa = idPessoa;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	@Column(name = "nome", nullable = false)
@@ -117,7 +117,7 @@ public class Pessoas implements Serializable{
 
 	@Override
 	public String toString() {
-		return "Pessoa [idPessoa=" + idPessoa + ", nome=" + nome + ", cpf=" + cpf + ", dataNascimento=" + dataNascimento
+		return "Pessoa [id=" + id + ", nome=" + nome + ", cpf=" + cpf + ", dataNascimento=" + dataNascimento
 				+ ", dataCriacao=" + dataCriacao + "dataAtualizacao=" + dataAtualizacao +"]";
 	}
 	
