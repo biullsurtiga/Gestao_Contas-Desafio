@@ -73,7 +73,7 @@ public class Transacoes implements Serializable{
 	}
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "dataTransacao", nullable = false)
+	@Column(name = "dataTransacao", nullable = true)
 	public Date getDataTransacao() {
 		return dataTransacao;
 	}

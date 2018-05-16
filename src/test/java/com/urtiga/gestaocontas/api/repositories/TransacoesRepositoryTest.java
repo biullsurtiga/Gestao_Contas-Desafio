@@ -42,7 +42,7 @@ public class TransacoesRepositoryTest {
 		Pessoas pessoas = this.pessoasRepository.save(obterDadosPessoas());
 		Contas contas = this.contasRepository.save(obterDadosContas(pessoas));
 		
-		this.contasId = contas.getIdConta();
+		this.contasId = contas.getId();
 		
 		this.transacoesRepository.save(obterDadosTransacoes(contas));
 		this.transacoesRepository.save(obterDadosTransacoes(contas));

@@ -66,7 +66,7 @@ public class Pessoas implements Serializable{
 		this.cpf = cpf;
 	}
 
-	@Column(name = "dataNascimento", nullable = false)
+	@Column(name = "dataNascimento", nullable = true)
 	public Date getDataNascimento() {
 		return dataNascimento;
 	}

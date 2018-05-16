@@ -86,7 +86,7 @@ public class CadastroContaController {
 	
 	private CadastroContaDto converterCadastroContaDto(Contas contas){
 		CadastroContaDto cadastroContaDto = new CadastroContaDto();
-		cadastroContaDto.setId(contas.getIdConta());
+		cadastroContaDto.setId(contas.getId());
 		cadastroContaDto.setNome(contas.getPessoas().getNome());
 		cadastroContaDto.setCpf(contas.getPessoas().getCpf());
 		cadastroContaDto.setData(contas.getPessoas().getDataNascimento());
