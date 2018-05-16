@@ -22,7 +22,6 @@ import javax.persistence.Table;
 import javax.persistence.Transient;
 
 import com.urtiga.gestaocontas.api.enums.FlagAtivo;
-import com.urtiga.gestaocontas.api.enums.TipoConta;
 
 @Entity
 @Table(name = "contas")
@@ -33,10 +32,10 @@ public class Contas implements Serializable{
 	 */
 	private static final long serialVersionUID = 1474070392386369226L;
 
-	private Long idConta;
+	private Long id;
 	private Float saldo;
 	private Float limiteSaqueDiario;
-	private TipoConta tipoConta;
+	private String tipoConta;
 	private FlagAtivo flagAtivo;
 	private Pessoas pessoas;
 	
@@ -50,12 +49,12 @@ public class Contas implements Serializable{
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	public Long getIdConta() {
-		return idConta;
+	public Long getId() {
+		return id;
 	}
 
-	public void setIdConta(Long idConta) {
-		this.idConta = idConta;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	@Column(name = "saldo", nullable = true)
@@ -86,13 +85,12 @@ public class Contas implements Serializable{
 		this.limiteSaqueDiario = limiteSaqueDiario;
 	}
 
-	@Enumerated(EnumType.STRING)
 	@Column(name = "tipoConta", nullable = false)
-	public TipoConta getTipoConta() {
+	public String getTipoConta() {
 		return tipoConta;
 	}
 
-	public void setTipoConta(TipoConta tipoConta) {
+	public void setTipoConta(String tipoConta) {
 		this.tipoConta = tipoConta;
 	}
 
@@ -157,7 +155,7 @@ public class Contas implements Serializable{
 
 	@Override
 	public String toString() {
-		return "Pessoa [idConta=" + idConta + ", saldo=" + saldo + ", limiteSaqueDiario=" + limiteSaqueDiario + ", tipoConta=" + tipoConta
+		return "Pessoa [idConta=" + id + ", saldo=" + saldo + ", limiteSaqueDiario=" + limiteSaqueDiario + ", tipoConta=" + tipoConta
 				+ ", flagAtivo=" + flagAtivo + "dataCriacao=" + dataCriacao + "dataAtualizacao=" + dataAtualizacao
 				+ ", id_Pessoa=" + pessoas +"]";
 	}

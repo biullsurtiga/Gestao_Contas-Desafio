@@ -34,12 +34,12 @@ ALTER TABLE `pessoas`
 
 ALTER TABLE `contas`
   ADD PRIMARY KEY (`idConta`),
-  ADD KEY `FK4cm1kg523jlopyexjbmi6y54j` (`id_Pessoa`);
+  ADD KEY (`id_Pessoa`);
 
 
 ALTER TABLE `transacoes`
-  ADD PRIMARY KEY (`idTransacoes``),
-  ADD KEY `FK46i4k5vl8wah7feutye9kbpi4` (`id_Conta`);
+  ADD PRIMARY KEY (`idTransacoes`),
+  ADD KEY (`id_Conta`);
 
 
 ALTER TABLE `pessoas`
@@ -48,13 +48,13 @@ ALTER TABLE `pessoas`
 ALTER TABLE `contas`
   MODIFY `idConta` bigint(20) NOT NULL AUTO_INCREMENT;
 
-ALTER TABLE `transacoes``
-  MODIFY `idTransacoes`` bigint(20) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `transacoes`
+  MODIFY `idTransacoes` bigint(20) NOT NULL AUTO_INCREMENT;
 
 
 ALTER TABLE `contas`
-  ADD CONSTRAINT `FK4cm1kg523jlopyexjbmi6y54j` FOREIGN KEY (`id_Pessoa`) REFERENCES `pessoas` (`idPessoa`);
+  ADD CONSTRAINT `FK_contas_pessoas` FOREIGN KEY (`id_Pessoa`) REFERENCES `pessoas` (`idPessoa`);
 
 
-ALTER TABLE `transacoes``
-  ADD CONSTRAINT `FK46i4k5vl8wah7feutye9kbpi4` FOREIGN KEY (`id_Conta``) REFERENCES `contas` (`idConta`);
+ALTER TABLE `transacoes`
+  ADD CONSTRAINT `FK_transacoes_contas` FOREIGN KEY (`id_Conta`) REFERENCES `contas` (`idConta`);

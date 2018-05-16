@@ -20,7 +20,6 @@ import com.urtiga.gestaocontas.api.entities.Contas;
 import com.urtiga.gestaocontas.api.entities.Pessoas;
 import com.urtiga.gestaocontas.api.entities.Transacoes;
 import com.urtiga.gestaocontas.api.enums.FlagAtivo;
-import com.urtiga.gestaocontas.api.enums.TipoConta;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -80,7 +79,7 @@ public class TransacoesRepositoryTest {
 		contas.setSaldo((float) 1000.00);
 		contas.setLimiteSaqueDiario((float) 200.00);
 		contas.setFlagAtivo(FlagAtivo.Ativo);
-		contas.setTipoConta(TipoConta.Conta_Corrente);
+		contas.setTipoConta("Normal");
 		contas.setPessoas(pessoas);
 		return contas;
 	}

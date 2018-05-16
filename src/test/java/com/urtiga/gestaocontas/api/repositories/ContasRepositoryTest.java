@@ -16,7 +16,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 import com.urtiga.gestaocontas.api.entities.Contas;
 import com.urtiga.gestaocontas.api.entities.Pessoas;
 import com.urtiga.gestaocontas.api.enums.FlagAtivo;
-import com.urtiga.gestaocontas.api.enums.TipoConta;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -29,11 +28,12 @@ public class ContasRepositoryTest {
 	@Autowired
 	private PessoasRepository pessoasRepository;
 	
-	private static final FlagAtivo flagAtivo = FlagAtivo.Ativo;
+	private Float saldo=(float) 1000;
 	
 	@Before
 	public void setUp() throws Exception {
 		Pessoas pessoas = this.pessoasRepository.save(obterDadosPessoas());
+		
 		this.contasRepository.save(obterDadosContas(pessoas));
 	}
 	
@@ -43,17 +43,17 @@ public class ContasRepositoryTest {
 	}
 	
 	@Test
-	public void testBuscarContaPorFlagAtivo() {
-		Contas contas = this.contasRepository.findbyflagAtivo(flagAtivo);
-		assertEquals(flagAtivo, contas.getFlagAtivo());
+	public void testBuscarContasPorSaldo() {
+		Contas contas = this.contasRepository.findBySaldo(saldo);
+		assertEquals(2, contas.getSaldo().toString());
 	}
 
 	private Contas obterDadosContas(Pessoas pessoas) throws NoSuchAlgorithmException{
 		Contas contas = new Contas();
-		contas.setSaldo((float) 1000.00);
+		contas.setSaldo(saldo);
 		contas.setLimiteSaqueDiario((float) 200.00);
-		contas.setFlagAtivo(flagAtivo);
-		contas.setTipoConta(TipoConta.Conta_Corrente);
+		contas.setFlagAtivo(FlagAtivo.Ativo);
+		contas.setTipoConta("Normal");
 		contas.setPessoas(pessoas);
 		return contas;
 	}

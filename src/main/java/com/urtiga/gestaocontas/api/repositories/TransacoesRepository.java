@@ -15,9 +15,8 @@ import com.urtiga.gestaocontas.api.entities.Transacoes;
 
 @Transactional(readOnly=true)
 @NamedQueries({
-	@NamedQuery(name = "TransacoesRepository.findByContasId",
-				query = "SELECT tran FROM Transacoes tran WHERE tran.contas.id = :contasId") })
-public interface TransacoesRepository extends JpaRepository<Transacoes, Long>{
+	@NamedQuery(name = "TransacoesRepository.findByContasId", query = "SELECT tran FROM Transacoes tran WHERE tran.contas.id = :contasId") })
+public interface TransacoesRepository extends JpaRepository<Transacoes, Long> {
 
 	List<Transacoes> findByContasId(@Param("contasId") Long contasId);
 	
